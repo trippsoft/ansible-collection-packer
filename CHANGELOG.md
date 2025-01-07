@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 ## [1.3.0] - 2025-01-07
 
-- *trippsc2.packer.build* role - Moved the contents of `packer_vars` variable a temporary file instead of at the comment line for more secure handling of secrets.
+- *trippsc2.packer.build* role - Moved the contents of `packer_vars` variable to a temporary file instead of at the comment line for more secure handling of secrets.
 - Added this Changelog
 
 ## [1.2.1] - 2024-09-16
