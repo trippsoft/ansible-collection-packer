@@ -20,13 +20,8 @@ _packer_warn_on_undeclared_var_command_args: >-
   {{ ['-warn-on-undeclared-var'] if packer_warn_on_undeclared_var else [] }}
 _packer_var_files_command_args: >-
   {{ packer_var_files | map('regex_replace', '^(.*)$', '-var-file="\1"') | list }}
-_packer_var_command_args: |-
-    [
-    {% for key, value in packer_vars.items() %}
-      "-var",
-      "\"{{ key }}={{ value }}\""{{ ',' if not loop.last }}
-    {% endfor %}
-    ]
+_packer_var_command_args: >-
+  {{ ["-var-file=" + _packer_tmp_var_file] if packer_vars | length > 0 else [] }}
 
 _packer_command: >-
   {{ (_packer_command_prefix +

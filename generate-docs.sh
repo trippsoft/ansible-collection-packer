@@ -2,8 +2,8 @@
 
 cd ./roles/install
 
-aar_doc . markdown
+aar-doc . markdown
 
 cd ../build
 
-aar_doc . markdown
+aar-doc . markdown

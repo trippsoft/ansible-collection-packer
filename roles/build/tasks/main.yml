@@ -1,4 +1,25 @@
 ---
+- name: Create variable file
+  when:
+    - packer_vars | length > 0
+  block:
+    - name: Create UUID
+      ansible.builtin.set_fact:
+        _packer_var_file_uuid: "{{ ansible_date_time.iso8601_micro | to_uuid }}"
+
+    - name: Store temporary variable file path
+      ansible.builtin.set_fact:
+        _packer_tmp_var_file: "{{ packer_plugin_tmp_dir | default('/tmp') }}/{{ _packer_var_file_uuid }}.pkrvars.hcl"
+
+    - name: Create temporary variable file
+      become: true
+      ansible.builtin.template:
+        src: template.pkrvars.hcl.j2
+        dest: "{{ _packer_tmp_var_file }}"
+        mode: '0644'
+        owner: root
+        group: root
+
 - name: Run Packer init step
   when:
     - packer_run_init
@@ -17,3 +38,11 @@
   changed_when: true
   retries: "{{ packer_build_retries }}"
   delay: "{{ packer_build_retry_delay }}"
+
+- name: Remove temporary variable file
+  when:
+    - _packer_tmp_var_file is defined
+  become: true
+  ansible.builtin.file:
+    path: "{{ _packer_tmp_var_file }}"
+    state: absent
