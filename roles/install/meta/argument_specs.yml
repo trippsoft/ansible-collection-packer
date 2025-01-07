@@ -3,7 +3,7 @@ argument_specs:
   main:
     short_description: Install HashiCorp Packer
     description:
-      - This role installs HashiCorp Packer.
+      - This role installs HashiCorp Packer on a Linux system.
     author:
       - Jim Tarpley
     options: {}

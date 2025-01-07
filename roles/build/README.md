@@ -1,9 +1,9 @@
 <!-- BEGIN_ANSIBLE_DOCS -->
 
 # Ansible Role: trippsc2.packer.build
-Version: 1.3.0
+Version: 1.3.1
 
-This role builds HashiCorp Packer image.
+This role builds a HashiCorp Packer image.
 
 ## Requirements
 

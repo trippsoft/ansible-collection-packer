@@ -3,7 +3,7 @@ galaxy_info:
   author: Jim Tarpley
   namespace: trippsc2
   role_name: install
-  description: This role installs HashiCorp Packer.
+  description: This role installs HashiCorp Packer on a Linux system.
 
   license: MIT
 

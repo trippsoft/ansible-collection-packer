@@ -3,7 +3,7 @@ galaxy_info:
   author: Jim Tarpley
   namespace: trippsc2
   role_name: build
-  description: This role builds HashiCorp Packer image.
+  description: This role builds a HashiCorp Packer image.
 
   license: MIT
 
