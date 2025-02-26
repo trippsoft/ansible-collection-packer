@@ -5,5 +5,5 @@ argument_specs:
     description:
       - This role installs HashiCorp Packer on a Linux system.
     author:
-      - Jim Tarpley
+      - Jim Tarpley (@trippsc2) (@trippsc2)
     options: {}

@@ -5,7 +5,7 @@ argument_specs:
     description:
       - This role builds HashiCorp Packer image.
     author:
-      - Jim Tarpley
+      - Jim Tarpley (@trippsc2)
     options:
       packer_executable_path:
         type: path
