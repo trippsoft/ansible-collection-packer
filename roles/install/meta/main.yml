@@ -7,7 +7,7 @@ galaxy_info:
 
   license: MIT
 
-  min_ansible_version: '2.15'
+  min_ansible_version: '2.16'
 
   platforms:
     - name: Debian
@@ -18,12 +18,17 @@ galaxy_info:
       versions:
         - '8'
         - '9'
+    - name: Fedora
+      versions:
+        - all
     - name: Ubuntu
       versions:
         - focal
         - jammy
         - noble
 
-collections: []
+collections:
+  - trippsc2.hashicorp
 
-dependencies: []
+dependencies:
+  - role: trippsc2.hashicorp.repo

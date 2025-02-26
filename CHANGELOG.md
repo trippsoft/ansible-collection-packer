@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.4.0] - 2025-02-26
+
+### Role - install
+
+- Added dependency on **trippsc2.hashicorp.repo** role to allow tasks to be reused by other roles.
+
 ## [1.3.1] - 2025-01-07
 
 ### Collection
