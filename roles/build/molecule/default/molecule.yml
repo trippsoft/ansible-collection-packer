@@ -9,11 +9,11 @@ driver:
   parallel: true
 platforms:
   - name: linux
-    box: jtarpley/${MOLECULE_BOX:-rocky8_cis}
+    box: jtarpley/${MOLECULE_BOX:-rocky9_cis}
     memory: 2048
     cpus: 2
     provider_options:
-      default_prefix: packer_install_
+      default_prefix: packer_build_
     groups:
       - subjects
 provisioner:
