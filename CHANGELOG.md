@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.4.1] - 2025-02-26
+
+### Role - build
+
+- Changed OS validation.
+
+### Role - install
+
+- Changed OS validation.
+
 ## [1.4.0] - 2025-02-26
 
 ### Role - install

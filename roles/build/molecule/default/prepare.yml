@@ -9,8 +9,20 @@
       become: true
       ansible.builtin.package:
         name:
-          - docker
+          - "{{ 'docker.io' if ansible_os_family == 'Debian' else 'docker' }}"
         state: present
+
+    - name: Add user to docker group
+      become: true
+      when:
+        - ansible_os_family == 'Debian'
+      ansible.builtin.user:
+        name: vagrant
+        groups:
+          - docker
+        append: true
+      notify:
+        - _reboot
 
     - name: Create Packer working directory
       become: true
@@ -32,3 +44,8 @@
         owner: vagrant
         group: vagrant
         mode: '0644'
+  handlers:
+    - name: Reboot
+      become: true
+      listen: _reboot
+      ansible.builtin.reboot:
