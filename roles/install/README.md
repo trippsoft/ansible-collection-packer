@@ -1,7 +1,7 @@
 <!-- BEGIN_ANSIBLE_DOCS -->
 
 # Ansible Role: trippsc2.packer.install
-Version: 1.4.2
+Version: 1.4.3
 
 This role installs HashiCorp Packer on a Linux system.
 
@@ -12,7 +12,7 @@ This role installs HashiCorp Packer on a Linux system.
 | Debian | <ul><li>bookworm</li></ul> |
 | EL | <ul><li>9</li><li>8</li></ul> |
 | Fedora | <ul><li>all</li></ul> |
-| Ubuntu | <ul><li>noble</li><li>jammy</li><li>focal</li></ul> |
+| Ubuntu | <ul><li>noble</li><li>jammy</li></ul> |
 
 ## Dependencies
 | Role |
