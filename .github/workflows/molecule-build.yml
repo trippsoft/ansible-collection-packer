@@ -38,8 +38,6 @@ jobs:
       matrix:
         box:
           - debian12_base
-          - fedora42_base
-          - fedora41_base
           - rocky9_cis
           - rocky8_cis
           - ubuntu2404_base
