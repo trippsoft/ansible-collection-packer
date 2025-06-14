@@ -1,7 +1,7 @@
 ---
 namespace: trippsc2
 name: packer
-version: 1.4.2
+version: 1.4.3
 readme: README.md
 authors:
   - Jim Tarpley (@trippsc2)
@@ -17,7 +17,7 @@ tags:
 dependencies:
   trippsc2.hashicorp: ">=1.0.0"
 
-repository: https://github.com/trippsc2/ansible-collection-packer.git
+repository: https://github.com/trippsoft/ansible-collection-packer.git
 
 manifest:
   directives:

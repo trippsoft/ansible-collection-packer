@@ -24,7 +24,6 @@ galaxy_info:
       versions:
         - noble
         - jammy
-        - focal
 
 collections:
   - trippsc2.hashicorp
