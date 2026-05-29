@@ -113,6 +113,12 @@ argument_specs:
         description:
           - The path to the Packer log file.
           - If not provided, logging will not be enabled.
+      packer_build_environment:
+        type: dict
+        required: false
+        default: {}
+        description:
+          - A dictionary of environment variables to set during the build.
       packer_build_retries:
         type: int
         required: false

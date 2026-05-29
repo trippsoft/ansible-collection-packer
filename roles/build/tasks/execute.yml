@@ -20,29 +20,29 @@
         owner: root
         group: root
 
-- name: Run Packer init step
-  when:
-    - packer_run_init
-  environment:
-    TMPDIR: "{{ packer_plugin_tmp_dir | default('') }}"
-  ansible.builtin.command: |-
-    {{ packer_executable_path }} init {{ packer_working_directory }}
-  changed_when: false
+- name: Run Packer
+  block:
+    - name: Run Packer init step
+      when:
+        - packer_run_init
+      environment:
+        TMPDIR: "{{ packer_plugin_tmp_dir | default('') }}"
+      ansible.builtin.command: |-
+        {{ packer_executable_path }} init {{ packer_working_directory }}
+      changed_when: false
 
-- name: Run Packer build
-  environment:
-    PACKER_LOG: "{{ _packer_log }}"
-    PACKER_LOG_PATH: "{{ packer_log_path | default('') }}"
-  ansible.builtin.command: |-
-    {{ _packer_command }}
-  changed_when: true
-  retries: "{{ packer_build_retries }}"
-  delay: "{{ packer_build_retry_delay }}"
-
-- name: Remove temporary variable file
-  when:
-    - _packer_tmp_var_file is defined
-  become: true
-  ansible.builtin.file:
-    path: "{{ _packer_tmp_var_file }}"
-    state: absent
+    - name: Run Packer build
+      environment: "{{ _packer_build_environment }}"
+      ansible.builtin.command: |-
+        {{ _packer_command }}
+      changed_when: true
+      retries: "{{ packer_build_retries }}"
+      delay: "{{ packer_build_retry_delay }}"
+  always:
+    - name: Remove temporary variable file
+      when:
+        - _packer_tmp_var_file is defined
+      become: true
+      ansible.builtin.file:
+        path: "{{ _packer_tmp_var_file }}"
+        state: absent

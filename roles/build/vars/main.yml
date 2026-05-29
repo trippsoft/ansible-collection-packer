@@ -37,4 +37,8 @@ _packer_command: >-
       _packer_var_command_args +
       [packer_working_directory]) | join(' ') }}
 
-_packer_log: "{{ packer_log_path is defined | ternary('1', '0') }}"
+_packer_build_log_environment:
+  PACKER_LOG: "{{ packer_log_path is defined | ternary('1', '0') }}"
+  PACKER_LOG_PATH: "{{ packer_log_path | default('') }}"
+
+_packer_build_environment: "{{ packer_build_environment | combine(_packer_build_log_environment) }}"

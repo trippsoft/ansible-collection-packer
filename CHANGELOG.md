@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.0] - 2025-05-29
+
+### Role - build
+
+- Added `packer_build_environment` variable to allow users to specify additional environment variables to set during the build process.
+
 ## [1.4.3] - 2025-06-11
 
 ### Collection
