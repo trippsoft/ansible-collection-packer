@@ -1,7 +1,7 @@
 <!-- BEGIN_ANSIBLE_DOCS -->
 
 # Ansible Role: trippsc2.packer.install
-Version: 1.4.3
+Version: 1.5.0
 
 This role installs HashiCorp Packer on a Linux system.
 
