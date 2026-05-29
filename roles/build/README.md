@@ -1,7 +1,7 @@
 <!-- BEGIN_ANSIBLE_DOCS -->
 
 # Ansible Role: trippsc2.packer.build
-Version: 1.4.3
+Version: 1.5.0
 
 This role builds a HashiCorp Packer image.
 
@@ -36,6 +36,7 @@ None.
 | packer_var_files | <p>A list of paths to Packer variable files to include.</p><p>These paths can be supplied as absolute paths.</p><p>See https://developer.hashicorp.com/packer/docs/commands/build#var-file for reference</p> | list of '' | no |  | [] |
 | packer_vars | <p>A dictionary of Packer variables to include.</p><p>See https://developer.hashicorp.com/packer/docs/commands/build#var for reference</p> | dict | no |  |  |
 | packer_log_path | <p>The path to the Packer log file.</p><p>If not provided, logging will not be enabled.</p> | path | no |  |  |
+| packer_build_environment | <p>A dictionary of environment variables to set during the build.</p> | dict | no |  |  |
 | packer_build_retries | <p>The number of times to retry a build.</p> | int | no |  | 0 |
 | packer_build_retry_delay | <p>The number of seconds to wait between retries.</p> | int | no |  | 5 |
 
