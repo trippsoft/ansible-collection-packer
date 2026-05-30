@@ -15,7 +15,7 @@ tags:
   - tools
 
 dependencies:
-  trippsc2.hashicorp: ">=1.0.0"
+  trippsc2.hashicorp: ">=1.1.0"
 
 repository: https://github.com/trippsoft/ansible-collection-packer.git
 
