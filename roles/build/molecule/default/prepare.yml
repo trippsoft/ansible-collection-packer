@@ -5,24 +5,20 @@
   roles:
     - role: trippsc2.packer.install
   tasks:
-    - name: Install Docker
-      become: true
-      ansible.builtin.package:
-        name:
-          - "{{ 'docker.io' if ansible_os_family == 'Debian' else 'docker' }}"
-        state: present
-
-    - name: Add user to docker group
-      become: true
-      when:
-        - ansible_os_family == 'Debian'
-      ansible.builtin.user:
-        name: vagrant
-        groups:
-          - docker
-        append: true
-      notify:
-        - _reboot
+    - name: Prepare Docker
+      ansible.builtin.include_tasks: "{{ _file }}"
+      vars:
+        _file: "{{ lookup('first_found', _params) }}"
+        _params:
+          files:
+            - "prepare-{{ ansible_distribution }}-{{ ansible_distribution_release | default('') }}.yml"
+            - "prepare-{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
+            - "prepare-{{ ansible_distribution }}.yml"
+            - "prepare-{{ ansible_os_family }}-{{ ansible_distribution_major_version }}.yml"
+            - "prepare-{{ ansible_os_family }}.yml"
+            - "prepare-fallback.yml"
+          paths:
+            - "{{ lookup('ansible.builtin.env', 'MOLECULE_SCENARIO_DIRECTORY') }}"
 
     - name: Create Packer working directory
       become: true

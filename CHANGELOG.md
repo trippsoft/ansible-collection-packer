@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.6.0] - 2026-05-30
+
+### Role - build
+
+- Added support for Debian 13.
+- Added support for Fedora 43.
+- Added support for Enterprise Linux 10.
+- Added support for Ubuntu 26.04.
+
 ## [1.5.0] - 2025-05-29
 
 ### Role - build
