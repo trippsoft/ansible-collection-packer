@@ -11,11 +11,11 @@
         _file: "{{ lookup('first_found', _params) }}"
         _params:
           files:
-            - "prepare-{{ ansible_distribution }}-{{ ansible_distribution_release | default('') }}.yml"
-            - "prepare-{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yml"
-            - "prepare-{{ ansible_distribution }}.yml"
-            - "prepare-{{ ansible_os_family }}-{{ ansible_distribution_major_version }}.yml"
-            - "prepare-{{ ansible_os_family }}.yml"
+            - "prepare-{{ ansible_facts.distribution }}-{{ ansible_facts.distribution_release | default('') }}.yml"
+            - "prepare-{{ ansible_facts.distribution }}-{{ ansible_facts.distribution_major_version }}.yml"
+            - "prepare-{{ ansible_facts.distribution }}.yml"
+            - "prepare-{{ ansible_facts.os_family }}-{{ ansible_facts.distribution_major_version }}.yml"
+            - "prepare-{{ ansible_facts.os_family }}.yml"
             - "prepare-fallback.yml"
           paths:
             - "{{ lookup('ansible.builtin.env', 'MOLECULE_SCENARIO_DIRECTORY') }}"
@@ -28,7 +28,7 @@
         owner: vagrant
         group: vagrant
         mode: '0755'
-      
+
     - name: Copy Packer HCL file
       loop:
         - test.pkr.hcl

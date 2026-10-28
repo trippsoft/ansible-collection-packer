@@ -5,7 +5,7 @@
   block:
     - name: Create UUID
       ansible.builtin.set_fact:
-        _packer_var_file_uuid: "{{ ansible_date_time.iso8601_micro | to_uuid }}"
+        _packer_var_file_uuid: "{{ ansible_facts.date_time.iso8601_micro | to_uuid }}"
 
     - name: Store temporary variable file path
       ansible.builtin.set_fact:

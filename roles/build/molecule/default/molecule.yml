@@ -9,8 +9,8 @@ driver:
   parallel: true
 platforms:
   - name: linux
-    box: jtarpley/${MOLECULE_BOX:-rocky9_cis}
-    memory: 2048
+    box: trippsc2/${MOLECULE_BOX:-rocky9_cis}
+    memory: 4096
     cpus: 2
     provider_options:
       default_prefix: packer_build_

@@ -10,4 +10,4 @@
     - role: trippsc2.packer.build
       vars:
         packer_vars:
-          image: 'index.docker.io/library/ubuntu:20.04'
+          image: 'index.docker.io/library/ubuntu:26.04'
