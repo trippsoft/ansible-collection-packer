@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.6.1] - 2026-10-28
+
+### Role - build
+
+- Changed fact gathering to use `ansible_facts` instead of direct variables.
+
+### Role - install
+
+- Changed fact gathering to use `ansible_facts` instead of direct variables.
+
 ## [1.6.0] - 2026-05-30
 
 ### Role - build
